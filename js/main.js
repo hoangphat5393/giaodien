@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var mostViewedSwiper = new Swiper(".most-viewed-swiper", {
     slidesPerView: 1.2, // Mobile partial view
     spaceBetween: 16,
+    navigation: {
+      nextEl: ".most-viewed-wrapper .swiper-button-next",
+      prevEl: ".most-viewed-wrapper .swiper-button-prev",
+    },
     breakpoints: {
       576: {
         slidesPerView: 2,
@@ -25,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var newProductsSwiper = new Swiper(".new-products-swiper", {
     slidesPerView: 1.5, // Mobile partial view
     spaceBetween: 16,
+    navigation: {
+      nextEl: ".new-products-wrapper .swiper-button-next",
+      prevEl: ".new-products-wrapper .swiper-button-prev",
+    },
     breakpoints: {
       576: {
         slidesPerView: 2,
