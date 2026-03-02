@@ -1,0 +1,128 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: var(--fontsize-body-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-2xl);
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.banner-top .bannerTopSwiper .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-page);
+    padding: var(--responsive-spacing-2xs);
+    border-radius: var(--border-radius-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    border: var(--border-width-sm) solid var(--border-primary);
+}
+
+.banner-top .bannerTopSwiper .swiper-pagination-bullet {
+    cursor: pointer;
+    width: var(--w-6);
+    height: var(--w-6);
+    background-color: var(--neutral-500);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-right: 1px;
+}
+
+.banner-top .bannerTopSwiper .swiper-pagination-bullet-active {
+    width: var(--w-16);
+    background-color: var(--icon-action);
+    border-radius: var(--border-radius-3xl);
+}
+
+.banner-top .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-page);
+    padding: var(--responsive-spacing-2xs);
+    border-radius: var(--border-radius-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    border: var(--border-width-sm) solid var(--border-primary);
+}
+
+.banner-top .swiper-pagination-bullet {
+    cursor: pointer;
+    width: var(--w-6);
+    height: var(--w-6);
+    background-color: var(--neutral-500);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-right: 1px;
+}
+
+.banner-top .swiper-pagination-bullet-active {
+    width: var(--w-16);
+    background-color: var(--icon-action);
+    border-radius: var(--border-radius-3xl);
+}
+
+.banner-top .swiper-pagination-bullets.swiper-pagination-horizontal,
+.banner-top .swiper-pagination-custom,
+.banner-top .swiper-pagination-fraction {
+    width: fit-content;
+}
+.banner-top .swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom: -24px;
+}
+.banner-top .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0px 2px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: var(--fontsize-headings-h7);
+    color: var(--icon-primary);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: var(--surface-primary);
+    opacity: 0.4;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.swiper-button-next {
+    transform: translateX(35px);
+}
+
+.swiper-button-prev {
+    transform: translateX(-35px);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 100%;
+}
