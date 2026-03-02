@@ -74,8 +74,6 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 4px solid #025ca6; /* Blue accent border */
-  padding-left: 12px; /* Space between border and text */
   line-height: 1.2;
 }
 
@@ -479,8 +477,6 @@ section {
   border-bottom: 1px dashed #e0e0e0;
   padding-bottom: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
-  border-left: 4px solid #025ca6; /* Keep left border */
-  padding-left: 12px;
 }
 
 .news-item {
@@ -514,7 +510,6 @@ section {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-align: justify;
 }
 
 .news-summary {
@@ -526,7 +521,6 @@ section {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-align: justify;
 }
 
 /* AI Trends Styling */

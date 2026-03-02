@@ -4,15 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var mostViewedSwiper = new Swiper(".most-viewed-swiper", {
     slidesPerView: 1.2, // Mobile partial view
     spaceBetween: 16,
-    navigation: {
-      nextEl: ".section-most-viewed .swiper-button-next",
-      prevEl: ".section-most-viewed .swiper-button-prev",
-    },
-    pagination: {
-      el: ".section-most-viewed .swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
     breakpoints: {
       576: {
         slidesPerView: 2,
@@ -34,15 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var newProductsSwiper = new Swiper(".new-products-swiper", {
     slidesPerView: 1.5, // Mobile partial view
     spaceBetween: 16,
-    navigation: {
-      nextEl: ".section-new-products .swiper-button-next",
-      prevEl: ".section-new-products .swiper-button-prev",
-    },
-    pagination: {
-      el: ".section-new-products .swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
     breakpoints: {
       576: {
         slidesPerView: 2,
