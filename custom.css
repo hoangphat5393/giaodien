@@ -23,6 +23,10 @@
   --responsive-spacing-md: 16px;
 }
 
+.d-none {
+  display: none;
+}
+
 /* Ensure Header is always on top of sticky elements */
 header {
   position: relative;
@@ -500,6 +504,12 @@ section {
   margin-bottom: 0;
 }
 
+.news-item-content > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .news-item-content h3 {
   font-size: var(--fontsize-headings-h5);
   font-weight: var(--font-weight-bold);
@@ -521,8 +531,9 @@ section {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 3em; /* Fallback/Constraint for 2 lines */
+  white-space: normal;
+  height: auto;
+  text-align: left;
 }
 
 /* AI Trends Styling */
