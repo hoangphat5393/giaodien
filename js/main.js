@@ -64,24 +64,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Fix sticky header on page load if already scrolled
-  const header = document.getElementById('header-nav');
-  const overlay = document.getElementById('overlay');
-  
+  const header = document.getElementById("header-nav");
+  const overlay = document.getElementById("overlay");
+
   if (header && overlay) {
+    if (window.scrollY > 50) {
+      header.classList.add("fixed");
+      overlay.classList.add("t-68");
+    }
+
+    // Ensure header updates on scroll (duplicate of general.js but safer if general.js fails or loads late)
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-          header.classList.add('fixed');
-          overlay.classList.add('t-68');
+        header.classList.add("fixed");
+        overlay.classList.add("t-68");
+      } else {
+        header.classList.remove("fixed");
+        overlay.classList.remove("t-68");
       }
-      
-      // Ensure header updates on scroll (duplicate of general.js but safer if general.js fails or loads late)
-      window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) {
-              header.classList.add('fixed');
-              overlay.classList.add('t-68');
-          } else {
-              header.classList.remove('fixed');
-              overlay.classList.remove('t-68');
-          }
-      });
+    });
   }
 });

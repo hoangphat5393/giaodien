@@ -58,6 +58,182 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="custom.css">
+    <style>
+        /* Class: .articles-filter
+           Mục đích: vùng bộ lọc chủ đề ngay dưới "Bài viết nổi bật".
+           Khác biệt so với main.html: bổ sung layout riêng cho chip theo thiết kế articles.jpg, dùng grid/flex cho responsive. */
+        .articles-filter {
+            margin: 40px 0;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .articles-filter .section-title {
+            margin-bottom: var(--spacing-sm);
+            border-left: 0;
+            padding-left: 0;
+            justify-content: flex-start;
+        }
+
+        /* Class: .articles-chip-list
+           Mục đích: danh sách các chip bộ lọc.
+           Khác biệt so với main.html: tạo hàng chip cuộn ngang trên mobile, wrap trên desktop. */
+        .articles-chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        /* Class: .articles-chip
+           Mục đích: phần tử chip hiển thị chủ đề.
+           Khác biệt so với main.html: kích thước, radius, màu viền theo design; dùng button/anchor thống nhất. */
+        .articles-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            border: 1px solid #e5e7eb;
+            border-radius: 999px;
+            background-color: #fff;
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-decoration: none;
+            white-space: nowrap;
+            height: 60px;
+            box-sizing: border-box;
+        }
+
+        .articles-chip img {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+        }
+
+        /* Class: .articles-grid
+           Mục đích: lưới 2 cột "Bài viết mới nhất" (trái) và "Bài viết xem nhiều" (phải).
+           Khác biệt so với main.html: chuyển từ các section rời rạc sang 2 cột cố định theo design articles.jpg. */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+        }
+
+        /* Class: .articles-latest
+           Mục đích: cột trái chứa danh sách bài mới nhất.
+           Khác biệt so với main.html: chuẩn hóa spacing giữa các item và chiều cao ảnh thumbnail. */
+        .articles-latest .news-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .articles-latest .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .articles-latest .img-wrapper {
+            width: 160px;
+            height: 106px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+
+        .articles-latest h3 {
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-headings);
+            margin-bottom: 6px;
+        }
+
+        .articles-latest .news-summary {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        /* Class: .articles-most
+           Mục đích: cột phải "Bài viết xem nhiều".
+           Khác biệt so với main.html: hiển thị dạng danh sách dọc, mỗi item gồm ảnh nhỏ + tiêu đề. */
+        .articles-most .articles-most-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: var(--spacing-xs);
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .articles-most .articles-most-item:last-child {
+            border-bottom: none;
+        }
+
+        .articles-most .img-wrapper {
+            width: 80px;
+            height: 54px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+
+        .articles-most h4 {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text-headings);
+            margin-bottom: 4px;
+        }
+
+        .articles-most .view-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: var(--spacing-sm);
+            color: #025ca6;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        /* Class: .articles-actions
+           Mục đích: hàng chứa nút "Xem thêm bài viết".
+           Khác biệt so với main.html: canh trái theo design của articles.jpg. */
+        .articles-actions {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .articles-latest .news-item {
+                grid-template-columns: 120px 1fr;
+            }
+
+            .articles-latest .img-wrapper {
+                width: 120px;
+                height: 80px;
+            }
+
+            .articles-most .articles-most-item {
+                grid-template-columns: 64px 1fr;
+            }
+
+            .articles-most .img-wrapper {
+                width: 64px;
+                height: 44px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -71,7 +247,7 @@
                 </a>
             </div>
             <div id="header-nav" class="header-nav">
-                <div class="container">
+                <div class="max-width">
                     <a href="#" class="logo" title="Siêu Thị Điện Máy Nội Thất Chợ Lớn">
                         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
                             data-src="https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/FE/images/logonew.png?version=1"
@@ -786,7 +962,8 @@
             </div>
         </header>
 
-        <div class="container main-content">
+        <div class="max-width main-content">
+            <h2 class="section-title">Bài Viết Nổi bật</h2>
             <!-- Section 1: Nổi bật -->
             <section class="section1 section-featured">
                 <div class="featured-main-article">
@@ -846,388 +1023,44 @@
                 </div>
             </section>
 
-            <!-- Section 2: Bài viết xem nhiều nhất -->
-            <section class="section2 section-most-viewed">
-                <h2 class="section-title">Bài viết xem nhiều nhất</h2>
-                <div class="swiper most-viewed-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide most-viewed-item">
-                            <a href="#" title="Lorem ipsum dolor sit amet">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section2_1.png" alt="Most Viewed 1" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-                                </h4>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide most-viewed-item">
-                            <a href="#" title="Lorem ipsum dolor sit amet">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section2_2.png" alt="Most Viewed 2" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-                                </h4>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide most-viewed-item">
-                            <a href="#" title="Lorem ipsum dolor sit amet">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section2_3.png" alt="Most Viewed 3" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-                                </h4>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide most-viewed-item">
-                            <a href="#" title="Lorem ipsum dolor sit amet">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section2_4.png" alt="Most Viewed 4" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-                                </h4>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </section>
+            <!-- Bộ lọc chủ đề -->
+            <section class="articles-filter" aria-label="Bộ lọc chủ đề">
+                <h2 class="section-title">Chủ đề điện tử</h2>
+                <div class="articles-chip-list" role="list">
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new1.png" alt="">
+                        Tivi
+                    </a>
+                    <a href="#" class="articles-chip" role="listitem"><img src="./img_new/section_new2.png" alt="">
+                        Loa</a>
+                    <a href="#" class="articles-chip" role="listitem"><img src="./img_new/section_new3.png" alt=""> Loa
+                        Karaoke
+                        & Mic</a>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new4.png" alt="">
+                        Máy chiếu
+                    </a>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new5.png" alt="">
+                        Amplify
+                    </a>
 
-            <!-- Section 3: Video Hot -->
-            <section class="section3 section-video-hot">
-                <h2 class="section-title">Video Hot <a href="#" class="view-more-link">Khám phá thêm ></a></h2>
-                <div class="video-grid">
-                    <div class="video-item">
-                        <a href="#" title="Video 1">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section3_1.png" alt="Video 1" loading="lazy" class="img-cover">
-                                <div class="video-play-icon">▶</div>
-                            </div>
-                            <h4>Cách giảm thành các dòng sản phẩm tủ lạnh, tủ lạnh mini tiếp...</h4>
-                            <p class="meta-info">1 ngày trước</p>
-                        </a>
-                    </div>
-                    <div class="video-item">
-                        <a href="#" title="Video 2">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section3_2.png" alt="Video 2" loading="lazy" class="img-cover">
-                                <div class="video-play-icon">▶</div>
-                            </div>
-                            <h4>Cách giảm thành các dòng sản phẩm tủ lạnh, tủ lạnh mini tiếp...</h4>
-                            <p class="meta-info">1 ngày trước</p>
-                        </a>
-                    </div>
-                    <div class="video-item">
-                        <a href="#" title="Video 3">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section3_3.png" alt="Video 3" loading="lazy" class="img-cover">
-                                <div class="video-play-icon">▶</div>
-                            </div>
-                            <h4>Cách giảm thành các dòng sản phẩm tủ lạnh, tủ lạnh mini tiếp...</h4>
-                            <p class="meta-info">1 ngày trước</p>
-                        </a>
-                    </div>
-                    <div class="video-item">
-                        <a href="#" title="Video 4">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section3_4.png" alt="Video 4" loading="lazy" class="img-cover">
-                                <div class="video-play-icon">▶</div>
-                            </div>
-                            <h4>Cách giảm thành các dòng sản phẩm tủ lạnh, tủ lạnh mini tiếp...</h4>
-                            <p class="meta-info">1 ngày trước</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 4: Sản phẩm mới -->
-            <section class="section4 section-new-products">
-                <h2 class="section-title">Sản phẩm mới <a href="#" class="view-more-link">Xem tất cả ></a></h2>
-                <div class="swiper new-products-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide product-card">
-                            <a href="#" title="Oppo Reno 10 5G">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section4_1.png" alt="Oppo Reno 10 5G" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">Oppo Reno 10 5G</div>
-                                    <div class="product-price">10.990.000đ</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide product-card">
-                            <a href="#" title="Vivo Y36">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section4_2.png" alt="Vivo Y36" loading="lazy" class="img-cover">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">Vivo Y36</div>
-                                    <div class="product-price">5.990.000đ</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide product-card">
-                            <a href="#" title="iPhone 14 Pro Max">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section4_3.png" alt="iPhone 14 Pro Max" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">iPhone 14 Pro Max</div>
-                                    <div class="product-price">26.990.000đ</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide product-card">
-                            <a href="#" title="LG PuriCare 360 Hit">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section4_4.png" alt="LG PuriCare 360 Hit" loading="lazy"
-                                        class="img-cover">
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-name">LG PuriCare 360 Hit</div>
-                                    <div class="product-price">6.990.000đ</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </section>
-
-
-            <!-- Section 5: Tư vấn di động -->
-            <section class="section5 section-category-advice">
-                <h2 class="section-title">Tư vấn di động <a href="#" class="view-more-link">Khám phá thêm ></a></h2>
-                <div class="category-advice-layout">
-                    <div class="advice-main-image">
-                        <a href="#" title="TOP 10 điện thoại hỗ trợ 5G">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section5.png" alt="Advice Mobile Main" loading="lazy"
-                                    class="img-cover">
-                            </div>
-                            <div class="article-info">
-                                <h3>TOP 10 điện thoại hỗ trợ 5G chất lượng tốt đáng mua hiện nay. Điện thoại 5G là gì?
-                                </h3>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="advice-list-grid">
-                        <div class="advice-item">
-                            <a href="#" title="Review 1">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_1.png" alt="Advice 1" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 1">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 2">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_2.png" alt="Advice 2" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 2">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 3">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_3.png" alt="Advice 1" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 3">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 4">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_4.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 4">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 6: Tư vấn điện tử -->
-            <section class="section5 section-category-advice">
-                <h2 class="section-title">Tư vấn điện tử <a href="#" class="view-more-link">Khám phá thêm ></a></h2>
-                <div class="category-advice-layout">
-                    <div class="advice-main-image">
-                        <a href="#" title="TOP 10 TV 4K">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section6.png" alt="Advice Electronics Main" loading="lazy"
-                                    class="img-cover">
-                            </div>
-                            <div class="article-info">
-                                <h3>TOP 10 điện thoại hỗ trợ 5G chất lượng tốt đáng mua hiện nay. Điện thoại 5G là gì?
-                                </h3>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="advice-list-grid">
-                        <div class="advice-item">
-                            <a href="#" title="Review 1">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_1.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 1">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 2">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_2.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 2">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 3">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_3.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 3">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 4">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_4.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 4">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 7 : Tư vấn điện lạnh -->
-            <section class="section5 section-category-advice">
-                <h2 class="section-title">Tư vấn điện lạnh <a href="#" class="view-more-link">Khám phá thêm ></a></h2>
-                <div class="category-advice-layout">
-                    <div class="advice-main-image">
-                        <a href="#" title="Top 5 máy giặt lồng ngang">
-                            <div class="img-wrapper">
-                                <img src="./img_new/section7.png" alt="Advice Refrigeration Main" loading="lazy"
-                                    class="img-cover">
-                            </div>
-                            <div class="article-info">
-                                <h3>TOP 10 điện thoại hỗ trợ 5G chất lượng tốt đáng mua hiện nay. Điện thoại 5G là gì?
-                                </h3>
-                                <p class="meta-info">1 ngày trước • Tin tức</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="advice-list-grid">
-                        <div class="advice-item">
-                            <a href="#" title="Review 1">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_1.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 1">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 2">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_2.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 2">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 3">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_3.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 3">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="advice-item">
-                            <a href="#" title="Review 4">
-                                <div class="img-wrapper">
-                                    <img src="./img_new/section5_4.png" alt="Advice 4" loading="lazy" class="img-cover">
-                                </div>
-                            </a>
-                            <div class="advice-item-content">
-                                <a href="#" title="Review 4">
-                                    <h4>Đánh giá Galaxy Tab S9 FE Plus: Hiệu năng mạnh mẽ</h4>
-                                    <p class="meta-info">1 ngày trước • Tin tức</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new1.png" alt="">
+                        Tivi
+                    </a>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new2.png" alt="">
+                        Amplify
+                    </a>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new3.png" alt="">
+                        Loa
+                    </a>
+                    <a href="#" class="articles-chip" role="listitem">
+                        <img src="./img_new/section_new4.png" alt="">
+                        Loa
+                    </a>
                 </div>
             </section>
 
@@ -1401,20 +1234,22 @@
                             </a>
                         </div>
                     </div>
-                    <a href="#" class="view-more-link"
-                        style="display: flex; align-items: center; gap: 4px; margin-top: 16px;">
-                        Xem thêm bài viết
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </a>
+                    <div class="view-more-container">
+                        <a href="#" class="btn-view-more-text">
+                            Xem thêm bài viết
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
         </div>
         </section>
 
         <section class="advantage">
-            <div class="container">
+            <div class="max-width">
                 <div class="list">
                     <a href="#" class="advantage-item">
                         <div class="icon">
@@ -1471,6 +1306,7 @@
                 </div>
             </div>
         </section>
+
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-branch">

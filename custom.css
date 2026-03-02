@@ -98,14 +98,14 @@ section {
 
 .section-featured {
   display: grid;
-  grid-template-columns: 3fr 2fr; /* Adjusted to 3:2 ratio */
-  gap: 40px; /* Adjusted to 40px per request */
+  grid-template-columns: 6fr 5fr; /* Adjusted to ~55:45 ratio to balance height */
+  gap: 30px; /* Fine-tuned gap */
 }
 
 .category-advice-layout {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 40px; /* Kept at 40px per previous request */
+  grid-template-columns: 6fr 5fr;
+  gap: 30px;
 }
 
 .featured-main-article {
@@ -117,7 +117,7 @@ section {
 }
 
 .featured-main-article h3 {
-  font-size: var(--fontsize-headings-h4);
+  font-size: 24px; /* Slightly larger to fill space */
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
@@ -136,7 +136,7 @@ section {
 .advice-list-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px; /* Consistent sub-item spacing */
+  gap: 16px; /* Tighter gap for sub-articles to reduce total height */
   align-content: start;
 }
 
@@ -285,7 +285,8 @@ section {
 }
 
 .new-products-swiper {
-  padding: var(--spacing-sm); /* Add padding to prevent shadow clipping */
+  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 
@@ -294,7 +295,8 @@ section {
   flex-direction: row; /* Horizontal Layout */
   align-items: center;
   padding: var(--spacing-sm);
-  border-radius: var(--border-radius-md);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
   background-color: #fff; /* White bg by default */
   transition:
     transform 0.2s,
@@ -312,6 +314,7 @@ section {
   display: flex;
   flex-direction: row; /* Ensure link content is also horizontal */
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
   color: inherit;
 }
@@ -338,14 +341,17 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .product-name {
-  font-size: var(--fontsize-body-sm);
+  font-size: 16px;
   font-weight: var(--font-weight-medium);
   margin-bottom: 4px;
   line-height: 1.3;
   color: var(--text-headings);
+  text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -356,6 +362,12 @@ section {
   color: #d70018; /* Red price color */
   font-weight: var(--font-weight-bold);
   font-size: var(--fontsize-body-md);
+}
+
+.product-info .meta-info {
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 14px;
 }
 
 /* =========================================
@@ -775,7 +787,7 @@ section {
   /* Ensure Category Advice section has equal height columns */
   .category-advice-layout {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 6fr 5fr;
     align-items: stretch;
   }
 
