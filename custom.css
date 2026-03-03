@@ -239,6 +239,13 @@ section {
 }
 
 /* Specific styles for Most Viewed Wrapper */
+.most-viewed-wrapper .swiper-button-next,
+.most-viewed-wrapper .swiper-button-prev,
+.new-products-wrapper .swiper-button-next,
+.new-products-wrapper .swiper-button-prev {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important; /* Enhanced shadow */
+}
+
 .most-viewed-wrapper .swiper-button-next {
   right: 0 !important;
 }
