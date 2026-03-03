@@ -7,6 +7,7 @@ Follow EVERY rule with ZERO exceptions.
 
 ## 1. Forbidden Directories — ONLY READ
 
-css/
+<!-- css/ -->
+
 gtv.html
 kien-thuc.html
