@@ -108,6 +108,11 @@
 	align-items: center;
 }
 
+/* Utility: temporarily hide element */
+.d-none {
+	display: none !important;
+}
+
 /* ===== Custom scopes (bottom): MAIN (.page-body) ===== */
 
 /* Topic Nav: thanh điều hướng chủ đề (Điện tử, Điện lạnh, ...) */
@@ -301,7 +306,7 @@
 
 .page-body .section-title {
 	font-size: var(--fontsize-headings-h3);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--responsive-spacing-md);
 	color: var(--text-headings);
 	display: flex;
@@ -551,7 +556,7 @@
 
 .page-body .news-item-content h3 {
 	font-size: var(--fontsize-headings-h5);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--spacing-xs);
 	line-height: 1.3;
 	color: var(--text-headings);
@@ -949,7 +954,7 @@
 /* ===== Main page custom styles (scoped) ===== */
 .page-body .section-title {
 	font-size: var(--fontsize-headings-h3);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--responsive-spacing-md);
 	color: var(--text-headings);
 	display: flex;
@@ -1185,7 +1190,7 @@
 
 .page-body .news-item-content h3 {
 	font-size: var(--fontsize-headings-h5);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--spacing-xs);
 	line-height: 1.3;
 	color: var(--text-headings);
@@ -1852,7 +1857,7 @@ ul li {
 /* Section Title Styling */
 .page-body .section-title {
 	font-size: var(--fontsize-headings-h3);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--responsive-spacing-md);
 	color: var(--text-headings);
 	display: flex;
@@ -1905,7 +1910,7 @@ ul li {
 
 .article-body .section-title {
 	font-size: var(--fontsize-headings-h3);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--responsive-spacing-md);
 	color: var(--text-headings);
 	display: flex;
@@ -1952,8 +1957,19 @@ ul li {
 	align-content: start;
 }
 
+.article-body .sub-article-item a {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	gap: 8px;
+	text-decoration: none;
+	color: inherit;
+}
+
 .article-body .sub-article-item .img-wrapper {
 	aspect-ratio: 16/9;
+	border-radius: var(--border-radius-md, 8px);
+	overflow: hidden;
 }
 
 .article-body .sub-article-item h4 {
@@ -1973,6 +1989,13 @@ ul li {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	gap: 20px;
+}
+
+.article-body .latest-news-list .section-title,
+.article-body .ai-trends-list .section-title {
+	border-bottom: 1px dashed #e0e0e0;
+	padding-bottom: var(--spacing-sm);
+	margin-bottom: var(--spacing-md);
 }
 
 .article-body .latest-news-list,
@@ -2021,7 +2044,7 @@ ul li {
 
 .article-body .news-item-content h3 {
 	font-size: var(--fontsize-headings-h5);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--spacing-xs);
 	line-height: 1.3;
 	color: var(--text-headings);
@@ -2523,7 +2546,7 @@ ul li {
 .page-body .advice-main-image h3 {
 	color: var(--text-headings);
 	font-size: var(--fontsize-headings-h5);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--spacing-xs);
 	line-height: 1.3;
 }
@@ -2552,8 +2575,9 @@ ul li {
 
 .page-body .advice-item-content h4 {
 	font-size: 14px;
-	font-weight: var(--font-weight-semibold);
-	line-height: 1.4;
+	font-weight: var(--font-weight-bold);
+	line-height: 20px;
+	letter-spacing: -0.2px;
 	color: var(--text-headings);
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
@@ -2634,7 +2658,7 @@ ul li {
 
 .page-body .news-item-content h3 {
 	font-size: var(--fontsize-headings-h5);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 	margin-bottom: var(--spacing-xs);
 	line-height: 1.3;
 	color: var(--text-headings);
