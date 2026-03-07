@@ -115,6 +115,195 @@
 
 /* ===== Custom scopes (bottom): MAIN (.page-body) ===== */
 
+/* Topic Nav: thanh điều hướng chủ đề (Điện tử, Điện lạnh, ...) */
+.page-body .topic-nav {
+	width: 100%;
+	background-color: var(--surface-primary, #fff);
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-bottom: 32px;
+}
+
+.page-body .topic-nav .max-width {
+	max-width: var(--content-width);
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 0;
+	padding-right: var(--responsive-padding-md, 16px);
+}
+
+.page-body .topic-nav-list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.page-body .topic-nav-item {
+	position: relative;
+}
+
+.page-body .topic-nav-item::after {
+	content: " ";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1px;
+	height: 14px;
+	background: var(--border-primary, #d0d1d4);
+	opacity: 1;
+}
+
+.page-body .topic-nav-item:last-child::after {
+	display: none;
+}
+
+.page-body .topic-nav-item a {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--responsive-padding-2xs, 4px) 16px;
+	font-size: var(--fontsize-body-x-sm, 14px);
+	line-height: var(--line-height-body-x-sm, 20px);
+	color: var(--text-headings, #22252b);
+	text-decoration: none;
+	font-weight: var(--font-weight-medium, 500);
+}
+
+.page-body .topic-nav-item a:hover {
+	color: var(--surface-action-hover, var(--primary-600));
+}
+
+.page-body .topic-nav-item--home a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 16px 0 0;
+}
+
+.page-body .topic-nav-item--home .topic-nav-icon-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	box-sizing: border-box;
+	background-color: #F5F5F5;
+	color: #0058A9;
+	padding: 0;
+	border-radius: var(--border-radius-full, 9999px);
+	border: 1px solid var(--border-primary, #e5e7eb);
+	margin-right: 8px;
+	flex-shrink: 0;
+}
+
+.page-body .topic-nav-item--home .topic-nav-icon-wrap svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+	flex-shrink: 0;
+	vertical-align: middle;
+}
+
+.page-body .topic-nav-list {
+	row-gap: 4px;
+}
+
+/* Topic Nav trong article-body (trang articles) - giống page-body */
+.article-body .topic-nav {
+	width: 100%;
+	background-color: var(--surface-primary, #fff);
+	padding-top: 12px;
+	padding-bottom: 12px;
+	margin-bottom: 32px;
+}
+
+.article-body .topic-nav .max-width {
+	max-width: var(--content-width);
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 0;
+	padding-right: var(--responsive-padding-md, 16px);
+}
+
+.article-body .topic-nav-list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	row-gap: 4px;
+}
+
+.article-body .topic-nav-item {
+	position: relative;
+}
+
+.article-body .topic-nav-item::after {
+	content: " ";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1px;
+	height: 14px;
+	background: var(--border-primary, #d0d1d4);
+	opacity: 1;
+}
+
+.article-body .topic-nav-item:last-child::after {
+	display: none;
+}
+
+.article-body .topic-nav-item a {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--responsive-padding-2xs, 4px) 16px;
+	font-size: var(--fontsize-body-x-sm, 14px);
+	line-height: var(--line-height-body-x-sm, 20px);
+	color: var(--text-headings, #22252b);
+	text-decoration: none;
+	font-weight: var(--font-weight-medium, 500);
+}
+
+.article-body .topic-nav-item a:hover {
+	color: var(--surface-action-hover, var(--primary-600));
+}
+
+.article-body .topic-nav-item--home a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 16px 0 0;
+}
+
+.article-body .topic-nav-item--home .topic-nav-icon-wrap {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	box-sizing: border-box;
+	background-color: #F5F5F5;
+	color: #0058A9;
+	padding: 0;
+	border-radius: var(--border-radius-full, 9999px);
+	border: 1px solid var(--border-primary, #e5e7eb);
+	margin-right: 8px;
+	flex-shrink: 0;
+}
+
+.article-body .topic-nav-item--home .topic-nav-icon-wrap svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+	flex-shrink: 0;
+	vertical-align: middle;
+}
+
 .page-body .section-title {
 	font-size: var(--fontsize-headings-h3);
 	font-weight: var(--font-weight-semibold);
